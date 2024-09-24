@@ -14,6 +14,8 @@
       type="text/css"
     />
 
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
     <title>Donate BD</title>
   </head>
   <body>
@@ -43,23 +45,14 @@
 
         <!-- navigation buttons -->
         <div class="mx-auto text-center bg-white pb-8 py-8">
-          <button
-            class="bg-lime-300 font-bold text-xl py-2 px-8 rounded-md text-black mr-2"
-            id="donatePageBtn"
-          >
-            Donation
-          </button>
-          <button
-            class="text-xl rounded-lg px-8 py-2 font-bold text-gray-700 border border-gray-700"
-            id="historyPageBtn"
-          >
-            History
-          </button>
+          <button class="active mr-2" id="donatePageBtn">Donation</button>
+          <button class="inactive" id="historyPageBtn">History</button>
         </div>
       </header>
 
       <main
-        class="donationPage color max-w-screen-lg mx-auto flex flex-col items-center gap-5 pb-36"
+        class="color max-w-screen-lg mx-auto flex flex-col items-center gap-5 pb-36"
+        id="donationPage"
       >
         <!-- card-1 noakhali -->
         <div
