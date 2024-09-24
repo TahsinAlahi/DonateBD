@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- tailwind css -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+
+    <!-- daisyUI -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>BLOG</title>
+  </head>
+  <body class="bg-white">
+    <header class="bg-stone-100 py-4 mb-10">
+      <!-- navbar -->
+      <nav
+        class="mb-10 flex items-center justify-between max-w-screen-lg mx-auto"
+      >
+        <button
+          class="bg-lime-300 font-bold text-xl py-2 px-8 rounded-md text-black"
+          onclick="location.href = '../index.html'"
+        >
+          Home
+        </button>
+        <div class="flex justify-center items-center gap-4 cursor-pointer">
+          <img src="../assets/logo.png" alt="Donate BD" class="h-full" />
+          <h1 class="text-black font-bold">Donate Bangladesh</h1>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <img src="../assets/coin.png" alt="coins" />
+          <div class="text-gray-500 font-semibold">
+            <span id="balance">5500 </span>BDT
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main
+      class="max-w-screen-lg mx-auto flex items-center gap-10 flex-col mb-10"
+    >
+      <!-- Accordion Item 1 -->
+      <div class="border-b px-8 border-gray-300 shadow-md w-full">
+        <button
+          onclick="toggleAccordion(1)"
+          class="w-full flex justify-between items-center py-5 text-black"
+        >
+          <span class="text-xl">What is DOM? </span>
+          <span
+            id="icon-1"
+            class="text-black transition-transform duration-300 text-3xl"
+          >
+            +
+          </span>
+        </button>
+        <div
+          id="content-1"
+          class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            The DOM is a tree-like representation of a webpage's structure,
+            enabling programming languages like JavaScript to interact with and
+            manipulate its elements. It allows dynamic updates to content,
+            structure, and style in web documents.
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 2 -->
+      <div class="border-b px-8 border-gray-300 shadow-md w-full">
+        <button
+          onclick="toggleAccordion(2)"
+          class="w-full flex justify-between items-center py-5 text-black"
+        >
+          <span class="text-xl">How do you select an element in DOM ?</span>
+          <span
+            id="icon-2"
+            class="text-black transition-transform duration-300 text-3xl"
+          >
+            +
+          </span>
+        </button>
+        <div
+          id="content-2"
+          class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            You can select an element in the DOM using methods like
+            getElementById, getElementsByClassName, and querySelector. For
+            example, document.getElementById('myId') selects an element with the
+            specified ID.
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 3 -->
+      <div class="border-b px-8 border-gray-300 shadow-md w-full">
+        <button
+          onclick="toggleAccordion(3)"
+          class="w-full flex justify-between items-center py-5 text-black"
+        >
+          <span class="text-xl"
+            >What is the purpose of the DOM in web development?</span
+          >
+          <span
+            id="icon-3"
+            class="text-black transition-transform duration-300 text-3xl"
+          >
+            +
+          </span>
+        </button>
+        <div
+          id="content-3"
+          class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            The DOM serves as a programming interface that represents the
+            structure of a webpage, allowing developers to dynamically
+            manipulate its content, style, and structure using languages like
+            JavaScript. This enables interactive and dynamic web applications.
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 4 -->
+      <div class="border-b px-8 border-gray-300 shadow-md w-full">
+        <button
+          onclick="toggleAccordion(4)"
+          class="w-full flex justify-between items-center py-5 text-black"
+        >
+          <span class="text-xl"
+            >How does the DOM affect webpage interactivity?</span
+          >
+          <span
+            id="icon-4"
+            class="text-black transition-transform duration-300 text-3xl"
+          >
+            +
+          </span>
+        </button>
+        <div
+          id="content-4"
+          class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            The DOM allows developers to manipulate webpage elements in
+            real-time, enabling features like dynamic content updates, event
+            handling, and animations, which enhance user interactivity and
+            experience. This is primarily achieved through JavaScript.
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function toggleAccordion(index) {
+        const content = document.getElementById(`content-${index}`);
+        const icon = document.getElementById(`icon-${index}`);
+
+        if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+          content.style.maxHeight = "0";
+          icon.innerHTML = "+";
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+          icon.innerHTML = "-";
+        }
+      }
+    </script>
+  </body>
+</html>

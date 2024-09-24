@@ -53,11 +53,14 @@ function handleDonate(e) {
   let donateAmount = parseInt(donateAmountEl.value);
   let balance = parseInt(balanceEl.innerText);
 
-  if (isNaN(donateAmount)) {
-    alert("Please Input Amount In Number");
+  if (
+    isNaN(donateAmount) ||
+    donateAmount === "" ||
+    balance - donateAmount <= 0
+  ) {
+    alert("Please Input A Valid Amount");
     return;
   }
-  if (balance - donateAmount <= 0) return;
 
   historyLoad(donateAmount, title);
   balanceEl.innerText = balance - donateAmount;
