@@ -53,18 +53,21 @@ function handleDonate(e) {
   let donateAmount = parseInt(donateAmountEl.value);
   let balance = parseInt(balanceEl.innerText);
 
+  if (isNaN(donateAmount)) {
+    alert("Please Input Amount In Number");
+    return;
+  }
   if (balance - donateAmount <= 0) return;
 
   historyLoad(donateAmount, title);
   balanceEl.innerText = balance - donateAmount;
   totalDonatedEl.innerText = totalDonated + donateAmount;
-  // donateAmountEl.value = "";
+  donateAmountEl.value = "";
+  my_modal_1.showModal();
 }
 
 for (let donateBtn of donationBtns) {
   donateBtn.addEventListener("click", handleDonate);
-
-  my_modal_1.showModal();
 }
 
 function addHistoryItem(historyObj) {
