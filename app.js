@@ -63,6 +63,8 @@ function handleDonate(e) {
 
 for (let donateBtn of donationBtns) {
   donateBtn.addEventListener("click", handleDonate);
+
+  my_modal_1.showModal();
 }
 
 function addHistoryItem(historyObj) {

@@ -85,6 +85,7 @@
             />
             <button
               class="donateBtn bg-lime-300 w-full py-2 text-black font-semibold rounded-lg"
+              onclick="my_modal_1.showModal()"
             >
               Donate Now
             </button>
@@ -122,6 +123,7 @@
             />
             <button
               class="donateBtn bg-lime-300 w-full py-2 text-black font-semibold rounded-lg"
+              onclick="my_modal_1.showModal()"
             >
               Donate Now
             </button>
@@ -159,14 +161,38 @@
             />
             <button
               class="donateBtn bg-lime-300 w-full py-2 text-black font-semibold rounded-lg"
+              onclick="my_modal_1.showModal()"
             >
               Donate Now
             </button>
           </div>
         </div>
+
+        <!-- modal -->
+        <dialog id="my_modal_1" class="modal">
+          <div
+            class="modal-box bg-white text-center flex items-center flex-col gap-6"
+          >
+            <h3 class="text-5xl font-bold text-black">Congrats!</h3>
+            <img src="./assets/coin.png" alt="Coins" class="w-1/12 mx-auto" />
+            <p class="text-gray-500 font-semibold">
+              You Have Donated For Humankind
+            </p>
+            <h3 class="text-black text-2xl font-bold">Successfully</h3>
+            <div class="modal-action">
+              <form method="dialog">
+                <button
+                  class="btn py-2 px-4 bg-slate-100 text-black text-md hover:bg-slate-300 outline-none"
+                >
+                  close confirmation
+                </button>
+              </form>
+            </div>
+          </div>
+        </dialog>
       </main>
       <main
-        class="flex flex-col max-w-screen-lg mx-auto gap-4 h-screen"
+        class="hidden flex flex-col max-w-screen-lg mx-auto gap-4 h-screen"
         id="historyPage"
       ></main>
     </div>
