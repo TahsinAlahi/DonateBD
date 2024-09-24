@@ -1,5 +1,4 @@
 function route(event) {
-  console.log(event);
   event.preventDefault();
   window.history.pushState({}, "", event.target.href);
   handleLocation();
@@ -16,7 +15,6 @@ async function handleLocation() {
   const data = await fetch(route);
   const html = await data.text();
 
-  console.log(document.getElementsByTagName("main"));
   document.querySelector("main").innerHTML = html;
 }
 window.onpopstate = handleLocation;
