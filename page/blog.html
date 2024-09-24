@@ -13,11 +13,13 @@
       rel="stylesheet"
       type="text/css"
     />
+
+    <link rel="stylesheet" href="../style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <title>BLOG</title>
   </head>
-  <body class="bg-white">
+  <body class="bg-white lexend">
     <header class="bg-stone-100 py-4 mb-10">
       <!-- navbar -->
       <nav
@@ -105,7 +107,8 @@
           class="w-full flex justify-between items-center py-5 text-black"
         >
           <span class="text-xl"
-            >What is the purpose of the DOM in web development?</span
+            >What is event delegation in the context of the DOM, and why is it
+            useful?</span
           >
           <span
             id="icon-3"
@@ -119,10 +122,11 @@
           class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
         >
           <div class="pb-5 text-sm text-slate-500">
-            The DOM serves as a programming interface that represents the
-            structure of a webpage, allowing developers to dynamically
-            manipulate its content, style, and structure using languages like
-            JavaScript. This enables interactive and dynamic web applications.
+            Event delegation is a technique in the DOM where a single event
+            listener is added to a parent element to manage events for its child
+            elements. It's useful because it reduces the number of event
+            listeners, improves performance, and efficiently handles dynamically
+            added elements.
           </div>
         </div>
       </div>
@@ -134,7 +138,8 @@
           class="w-full flex justify-between items-center py-5 text-black"
         >
           <span class="text-xl"
-            >How does the DOM affect webpage interactivity?</span
+            >How do you manipulate an element's attributes and styles using the
+            DOM?</span
           >
           <span
             id="icon-4"
@@ -148,10 +153,12 @@
           class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
         >
           <div class="pb-5 text-sm text-slate-500">
-            The DOM allows developers to manipulate webpage elements in
-            real-time, enabling features like dynamic content updates, event
-            handling, and animations, which enhance user interactivity and
-            experience. This is primarily achieved through JavaScript.
+            You can manipulate an element’s attributes using setAttribute,
+            getAttribute, and removeAttribute, e.g., element.setAttribute('src',
+            'image.jpg'). For styles, modify the style property directly, like
+            element.style.backgroundColor = 'blue', or use element.classList to
+            add/remove CSS classes. This allows dynamic control over an
+            element’s appearance and behavior.
           </div>
         </div>
       </div>

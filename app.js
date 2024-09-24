@@ -1,13 +1,18 @@
+// elements
 let balanceEl = document.getElementById("balance");
-const donationBtns = document.getElementsByClassName("donateBtn");
+
+// pages
 const historyPage = document.getElementById("historyPage");
 const donationPage = document.getElementById("donationPage");
-let history = [];
 
+//buttons
+const donationBtns = document.getElementsByClassName("donateBtn");
 const donatePageBtn = document.getElementById("donatePageBtn");
 const historyPageBtn = document.getElementById("historyPageBtn");
 
+// handle page toggle between history and donation
 function handlePageToggle(e) {
+  // toggle active inactive
   if (
     donatePageBtn.classList.contains("active") &&
     e.target.id === "historyPageBtn"
@@ -22,6 +27,7 @@ function handlePageToggle(e) {
     donatePageBtn.classList.replace("inactive", "active");
   }
 
+  // make the page hidden or visible
   if (donatePageBtn.classList.contains("active")) {
     donationPage.classList.remove("hidden");
     historyPage.classList.add("hidden");
@@ -31,6 +37,7 @@ function handlePageToggle(e) {
   }
 }
 
+//load the history in ui
 function historyLoad(donateAmount, title) {
   const newData = {
     title,
@@ -38,21 +45,24 @@ function historyLoad(donateAmount, title) {
     donatingTime: new Date(),
   };
 
-  history = [...history, newData];
-
   addHistoryItem(newData);
 }
 
+// handle the donation button click event
 function handleDonate(e) {
+  // card elements
   let card = e.target.parentNode;
   let totalDonatedEl = card.querySelector("span");
   let donateAmountEl = card.querySelector("input");
 
+  // card values
   let title = card.querySelector("h2").innerText;
   let totalDonated = parseInt(totalDonatedEl.innerText);
   let donateAmount = parseInt(donateAmountEl.value);
   let balance = parseInt(balanceEl.innerText);
 
+  // letter, empty value gives error
+  //and stops the donation process
   if (
     isNaN(donateAmount) ||
     donateAmount === "" ||
@@ -62,17 +72,19 @@ function handleDonate(e) {
     return;
   }
 
+  //load the history
   historyLoad(donateAmount, title);
+
+  // updates the value in ui
   balanceEl.innerText = balance - donateAmount;
   totalDonatedEl.innerText = totalDonated + donateAmount;
   donateAmountEl.value = "";
+
+  // this is for showing modal from daisy ui
   my_modal_1.showModal();
 }
 
-for (let donateBtn of donationBtns) {
-  donateBtn.addEventListener("click", handleDonate);
-}
-
+// make a card for the historyPage
 function addHistoryItem(historyObj) {
   const div = document.createElement("div");
   div.classList.add("p-8", "border", "border-gray-300", "rounded-lg");
@@ -84,6 +96,10 @@ function addHistoryItem(historyObj) {
           </p>`;
   div.innerHTML = element;
   historyPage.appendChild(div);
+}
+
+for (let donateBtn of donationBtns) {
+  donateBtn.addEventListener("click", handleDonate);
 }
 
 donatePageBtn.addEventListener("click", handlePageToggle);
