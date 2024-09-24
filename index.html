@@ -7,28 +7,6 @@
     <!-- tailwind css -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
 
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {},
-        },
-        plugins: [
-          function ({ addComponents }) {
-            addComponents({
-              ".primaryButton": {
-                backgroundColor: "#bef264",
-                fontWeight: "bold",
-                fontSize: "1.25rem",
-                padding: "0.5rem 2rem",
-                borderRadius: "0.5rem",
-                color: "#000000",
-              },
-            });
-          },
-        ],
-      };
-    </script>
-
     <!-- daisyUI -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
@@ -46,7 +24,7 @@
           class="mb-10 flex items-center justify-between max-w-screen-lg mx-auto"
         >
           <button
-            class="primaryButton"
+            class="bg-lime-300 font-bold text-xl py-2 px-8 rounded-md text-black"
             onclick="location.href = './pages/blog.html'"
           >
             Blog
@@ -65,12 +43,18 @@
 
         <!-- navigation buttons -->
         <div class="mx-auto text-center bg-white pb-8 py-8">
-          <a class="primaryButton mr-2">Donation</a>
-          <a
+          <button
+            class="bg-lime-300 font-bold text-xl py-2 px-8 rounded-md text-black mr-2"
+            id="donatePageBtn"
+          >
+            Donation
+          </button>
+          <button
             class="text-xl rounded-lg px-8 py-2 font-bold text-gray-700 border border-gray-700"
+            id="historyPageBtn"
           >
             History
-          </a>
+          </button>
         </div>
       </header>
 
@@ -188,7 +172,10 @@
           </div>
         </div>
       </main>
-      <main class="historyPage"></main>
+      <main
+        class="flex flex-col max-w-screen-lg mx-auto gap-4 h-screen"
+        id="historyPage"
+      ></main>
     </div>
 
     <script src="app.js"></script>

@@ -1,6 +1,10 @@
 let balanceEl = document.getElementById("balance");
-let donationBtns = document.getElementsByClassName("donateBtn");
+const donationBtns = document.getElementsByClassName("donateBtn");
+const historyPage = document.getElementById("historyPage");
 let history = [];
+
+const donatePageBtn = document.getElementById("donatePageBtn");
+const historyPageBtn = document.getElementById("historyPageBtn");
 
 function historyLoad(donateAmount, title) {
   const newData = {
@@ -11,7 +15,7 @@ function historyLoad(donateAmount, title) {
 
   history = [...history, newData];
 
-  console.log(history);
+  addHistoryItem(newData);
 }
 
 function handleDonate(e) {
@@ -34,5 +38,20 @@ function handleDonate(e) {
 
 for (let donateBtn of donationBtns) {
   donateBtn.addEventListener("click", handleDonate);
-  // donateBtn.click();
 }
+
+function addHistoryItem(historyObj) {
+  const div = document.createElement("div");
+  div.classList.add("p-8", "border", "border-gray-300", "rounded-lg");
+  const element = `<h2 class="font-bold text-xl mb-4 text-black">
+            ${historyObj.amount} Taka is Donated for ${historyObj.title}
+          </h2>
+          <p class="text-gray-700">
+            Date : ${historyObj.donatingTime}
+          </p>`;
+  div.innerHTML = element;
+  historyPage.appendChild(div);
+}
+
+// donatePageBtn.addEventListener("click", handlePageToggle);
+// historyPageBtn.addEventListener("click", handlePageToggle);
