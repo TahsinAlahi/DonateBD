@@ -12,10 +12,24 @@
         theme: {
           extend: {},
         },
+        plugins: [
+          function ({ addComponents }) {
+            addComponents({
+              ".primaryButton": {
+                backgroundColor: "#bef264",
+                fontWeight: "bold",
+                fontSize: "1.25rem",
+                padding: "0.5rem 2rem",
+                borderRadius: "0.5rem",
+                color: "#000000",
+              },
+            });
+          },
+        ],
       };
     </script>
 
-    <!--  daisyUI -->
+    <!-- daisyUI -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
       rel="stylesheet"
@@ -24,5 +38,34 @@
 
     <title>Donate BD</title>
   </head>
-  <body></body>
+  <body>
+    <div class="">
+      <header class="bg-stone-50 mb-8">
+        <!-- navbar -->
+        <nav
+          class="py-4 mb-10 flex items-center justify-between max-w-screen-lg mx-auto"
+        >
+          <button class="primaryButton">Blog</button>
+          <div class="flex justify-center items-center gap-4 cursor-pointer">
+            <img src="./assets/logo.png" alt="Donate BD" class="h-full" />
+            <h1 class="text-black font-bold">Donate Bangladesh</h1>
+          </div>
+          <div class="flex items-center justify-center gap-2">
+            <img src="./assets/coin.png" alt="coins" />
+            <div class="text-gray-500 font-semibold"><span>5500</span>BDT</div>
+          </div>
+        </nav>
+
+        <!-- navigation buttons -->
+        <div class="mx-auto text-center">
+          <button class="primaryButton mr-2">Donation</button>
+          <button
+            class="text-xl rounded-lg px-8 py-2 font-bold text-gray-700 border border-gray-700"
+          >
+            History
+          </button>
+        </div>
+      </header>
+    </div>
+  </body>
 </html>
