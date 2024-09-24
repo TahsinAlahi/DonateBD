@@ -1,6 +1,18 @@
 let balanceEl = document.getElementById("balance");
 let donationBtns = document.getElementsByClassName("donateBtn");
-let history = {};
+let history = [];
+
+function historyLoad(donateAmount, title) {
+  const newData = {
+    title,
+    amount: donateAmount,
+    donatingTime: new Date(),
+  };
+
+  history = [...history, newData];
+
+  console.log(history);
+}
 
 function handleDonate(e) {
   let card = e.target.parentNode;
@@ -14,6 +26,7 @@ function handleDonate(e) {
 
   if (balance - donateAmount <= 0) return;
 
+  historyLoad(donateAmount, title);
   balanceEl.innerText = balance - donateAmount;
   totalDonatedEl.innerText = totalDonated + donateAmount;
   // donateAmountEl.value = "";
